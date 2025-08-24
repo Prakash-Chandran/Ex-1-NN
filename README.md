@@ -37,11 +37,80 @@ STEP 5:Normalizing the data<BR>
 STEP 6:Splitting the data into test and train<BR>
 
 ##  PROGRAM:
-TYPE YOUR CODE HERE
+````
+Name : Prakash C
+Reg No : 212223240122
+````
+```
+import pandas as pd
+import io
+from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import MinMaxScaler
+from sklearn.model_selection import train_test_split
+
+data = pd.read_csv("Churn_Modelling.csv")
+data
+data.head()
+
+X=data.iloc[:,:-1].values
+X
+
+y=data.iloc[:,-1].values
+y
+
+data.isnull().sum()
+
+data.duplicated()
+
+data.describe()
+
+data = data.drop(['Surname', 'Geography','Gender'], axis=1)
+data.head()
+
+scaler=MinMaxScaler()
+df1=pd.DataFrame(scaler.fit_transform(data))
+print(df1)
+
+X_train ,X_test ,y_train,y_test=train_test_split(X,y,test_size=0.2)
+
+X_train
+
+X_test
+
+print("Lenght of X_test ",len(X_test))
+
+
+```
 
 
 ## OUTPUT:
-SHOW YOUR OUTPUT HERE
+
+### Dataset:
+<img width="1111" height="215" alt="Screenshot 2025-08-24 073626" src="https://github.com/user-attachments/assets/b289ebe8-9a1f-4ff8-8d33-537ca35af9b2" />
+
+### X Values:
+<img width="563" height="136" alt="Screenshot 2025-08-24 073632" src="https://github.com/user-attachments/assets/756a1997-5fb2-438a-8872-adeca242a802" />
+
+### Y Values:
+<img width="265" height="37" alt="Screenshot 2025-08-24 073637" src="https://github.com/user-attachments/assets/a31d57f6-71ef-4239-a5e0-68e2416a6860" />
+
+### Null Values:
+<img width="228" height="270" alt="Screenshot 2025-08-24 073644" src="https://github.com/user-attachments/assets/24be3936-c1a6-4f8f-948a-b1b3722b5175" />
+
+### Duplicated Values:
+<img width="252" height="214" alt="Screenshot 2025-08-24 073651" src="https://github.com/user-attachments/assets/27f0240a-71a6-40c4-b5c6-008e1320185c" />
+
+### Description:
+<img width="1111" height="302" alt="Screenshot 2025-08-24 073704" src="https://github.com/user-attachments/assets/2e9ba9c5-2eeb-4b5c-b349-0a5d7a60ec29" />
+
+### Normalized Dataset:
+<img width="926" height="189" alt="Screenshot 2025-08-24 073712" src="https://github.com/user-attachments/assets/099ff21d-6c10-4580-8a91-70b86b0aa671" />
+
+### Testing Data:
+<img width="725" height="468" alt="Screenshot 2025-08-24 073721" src="https://github.com/user-attachments/assets/3017d367-b918-4560-a6e4-e1b9f80798c6" />
+
+<img width="210" height="26" alt="Screenshot 2025-08-24 073733" src="https://github.com/user-attachments/assets/37eb8b79-9c97-470f-b1f6-1d2ed6cf22b5" />
+
 
 
 ## RESULT:
